@@ -63,7 +63,7 @@ src_prepare() {
 
 	# Fix missing Intel bin icon
 	# https://github.com/fritzing/fritzing-parts/commit/716560e9
-	sed -i -e 's:Intel.png:intel.png:' bins/more/intel.fzb || die
+	# sed -i -e 's:Intel.png:intel.png:' bins/more/intel.fzb || die
 
 	default
 }
