@@ -1,0 +1,11 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="50" quality="experimental">
+    <name>garetjax-overlay</name>
+    <description>GaretJax's overlay</description>
+    <owner>
+      <email>jonathan@stoppani.name</email>
+      <name>Jonathan Stoppani</name>
+    </owner>
+    <source type="git">https://github.com/garetjax/garetjax-overlay.git</source>
+  </repo>
+</repositories>
