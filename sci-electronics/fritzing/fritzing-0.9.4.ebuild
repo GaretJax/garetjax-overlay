@@ -6,7 +6,7 @@ EAPI=6
 # CI_BUILD_ID="${PV}"
 CI_BUILD_ID="CD-353"
 S="${WORKDIR}/${PN}-app-${CI_BUILD_ID}"
-PARTS_P="${PN}-parts-${CI_BUILD_ID}"
+PARTS_P="${PN}-parts-0.9.3b"
 
 inherit qmake-utils
 
