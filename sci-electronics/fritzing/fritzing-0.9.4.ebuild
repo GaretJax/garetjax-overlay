@@ -31,13 +31,11 @@ RDEPEND="dev-qt/qtconcurrent:5
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.40"
 
-S="${WORKDIR}/${PN}-app-${PV}"
+S="${WORKDIR}/${PN}-app-CD-353"
 
 DOCS="readme.md"
 
 src_prepare() {
-	local lang translations=
-
 	# fix build with newer quazip - bug #597988
 	sed -i -e "s/#include <quazip/&5/" src/utils/folderutils.cpp || die
 	sed -i -e "s|/usr/include/quazip|&5|" -e "s/-lquazip/&5/" phoenix.pro || die
