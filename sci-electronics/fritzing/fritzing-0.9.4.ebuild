@@ -3,13 +3,16 @@
 
 EAPI=6
 
-PARTS_P="${PN}-parts-${PV}"
+# CD_BUILD_ID="${PV}"
+CD_BUILD_ID="CD-253"
+S="${WORKDIR}/${PN}-app-${CD_BUILD_ID}"
+PARTS_P="${PN}-parts-${CD_BUILD_ID}"
 
 inherit qmake-utils
 
 DESCRIPTION="Electronic Design Automation"
 HOMEPAGE="http://fritzing.org/"
-SRC_URI="https://github.com/fritzing/fritzing-app/archive/CD-353.tar.gz -> fritzing-app-CD-353.tar.gz
+SRC_URI="https://github.com/fritzing/fritzing-app/archive/CD-353.tar.gz -> fritzing-app-${CD_BUILD_ID}.tar.gz
 	https://github.com/fritzing/fritzing-parts/archive/0.9.3b.tar.gz -> ${PARTS_P}.tar.gz"
 
 LICENSE="CC-BY-SA-3.0 GPL-3+"
@@ -30,8 +33,6 @@ RDEPEND="dev-qt/qtconcurrent:5
 	>=dev-libs/quazip-0.7.2[qt5(+)]"
 DEPEND="${RDEPEND}
 	>=dev-libs/boost-1.40"
-
-S="${WORKDIR}/${PN}-app-CD-353"
 
 DOCS="README.md"
 
