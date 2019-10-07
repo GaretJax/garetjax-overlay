@@ -9,7 +9,7 @@ inherit qmake-utils
 
 DESCRIPTION="Electronic Design Automation"
 HOMEPAGE="http://fritzing.org/"
-SRC_URI="https://github.com/fritzing/fritzing-app/archive/CD-353.tar.gz -> ${P}.tar.gz
+SRC_URI="https://github.com/fritzing/fritzing-app/archive/CD-353.tar.gz -> fritzing-app-CD-353.tar.gz
 	https://github.com/fritzing/fritzing-parts/archive/0.9.3b.tar.gz -> ${PARTS_P}.tar.gz"
 
 LICENSE="CC-BY-SA-3.0 GPL-3+"
@@ -45,25 +45,10 @@ src_prepare() {
 	# Get a rid of the bundled libs
 	# Bug 412555 and
 	# https://code.google.com/p/fritzing/issues/detail?id=1898
-	rm -rf src/lib/quazip/ pri/quazip.pri src/lib/boost* || die
+	rm -rf src/lib/quazip/ pri/quazip.pri || die
 
 	# Fritzing doesn't need zlib
-	sed -i -e 's:LIBS += -lz::' -e 's:-lminizip::' phoenix.pro || die
-
-	# Somewhat evil but IMHO the best solution
-	for lang in $L10N; do
-		lang=${lang/linguas_}
-		[[ -f "translations/${PN}_${lang}.qm" ]] && translations+=" translations/${PN}_${lang}.qm"
-	done
-	if [[ -n "${translations}" ]]; then
-		sed -i -e "s:\(translations.extra =\) .*:\1	cp -p ${translations} \$(INSTALL_ROOT)\$\$PKGDATADIR/translations\r:" phoenix.pro || die
-	else
-		sed -i -e "s:translations.extra = .*:\r:" phoenix.pro || die
-	fi
-
-	# Fix missing Intel bin icon
-	# https://github.com/fritzing/fritzing-parts/commit/716560e9
-	# sed -i -e 's:Intel.png:intel.png:' bins/more/intel.fzb || die
+	sed -i -e 's:LIBS += -lz::' || die
 
 	default
 }
