@@ -33,7 +33,7 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${PN}-app-CD-353"
 
-DOCS="readme.md"
+DOCS="README.md"
 
 src_prepare() {
 	# fix build with newer quazip - bug #597988
