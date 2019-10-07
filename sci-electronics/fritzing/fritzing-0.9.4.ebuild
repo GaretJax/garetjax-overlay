@@ -46,7 +46,7 @@ src_prepare() {
 	rm -rf src/lib/quazip/ pri/quazip.pri || die
 
 	# Fritzing doesn't need zlib
-	sed -i -e 's:LIBS += -lz::' || die
+	sed -i -e 's:LIBS += -lz::' phoenix.pro || die
 
 	default
 }
